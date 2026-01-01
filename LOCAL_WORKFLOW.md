@@ -175,3 +175,4 @@ git push -u origin main
 
 **Current Status**: All basic structure has been created. You can now freely edit and complete content in Cursor.
 
+

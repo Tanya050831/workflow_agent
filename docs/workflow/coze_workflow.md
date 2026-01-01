@@ -6,7 +6,9 @@ This document provides detailed information about the Coze workflow implementati
 
 ## Workflow Architecture | 工作流架构
 
-![Workflow Architecture](../images/methodology.png)
+```markdown
+![Workflow Architecture](all_1.pn)
+```
 
 *Figure: Complete Workflow Architecture*
 
@@ -25,9 +27,9 @@ This document provides detailed information about the Coze workflow implementati
 - Mathematical expressions
 
 **输入类型**:
-- 物理问题的文本描述
-- 图表和插图
-- 数学表达式
+
+- 图表和插图(image.url)
+
 
 ### 2. Language Translation Node | 语言翻译节点
 
@@ -40,7 +42,7 @@ This document provides detailed information about the Coze workflow implementati
 - Preserve technical terms: Yes
 
 **配置**:
-- 翻译模型: [指定模型]
+- 翻译模型: [DeepSeek-V3-0324]
 - 目标语言: 英文
 - 保留专业术语: 是
 
@@ -56,17 +58,23 @@ This document provides detailed information about the Coze workflow implementati
 
 2. **Solved Problems Database**
    - Contains 1,800 solved problems with detailed solutions
-   - 包含1800个已解决问题及详细解答
+   - 包含1800个比赛官方提供的问题及其详细解答
 
 **Retrieval Strategy**:
-- Top-K retrieval: [Specify K value]
-- Similarity threshold: [Specify threshold]
-- Re-ranking: [Specify method]
+- Search Strategy: Mixed (混合)
+- Max Recall: Default (平台自动优化，范围1-20)
+- Min Match: Default (平台自动优化，范围0.01-0.99)
+- Query Rewriting: Enabled (查询改写)
+- Result Reranking: Enabled (结果重排)
+- Table SQL Query: Enabled (表格SQL查询)
 
 **检索策略**:
-- Top-K检索: [指定K值]
-- 相似度阈值: [指定阈值]
-- 重排序: [指定方法]
+- 搜索策略: 混合模式
+- 最大召回数量: 默认值（平台自动优化，范围1-20）
+- 最小匹配度: 默认值（平台自动优化，范围0.01-0.99）
+- 查询改写: 已启用（优化查询语句以更准确捕捉用户意图）
+- 结果重排: 已启用（根据相关性或质量对检索结果重新排序）
+- 表格SQL查询: 已启用（同步将自然语言查询转为SQL语句）
 
 ### 4. Core Reasoning Model | 核心推理模型
 
@@ -80,8 +88,8 @@ This document provides detailed information about the Coze workflow implementati
 
 **模型配置**:
 - 主要模型: Model_Deepseek-r1
-- 温度参数: [指定]
-- 最大token数: [指定]
+- 温度参数: [0]
+- 最大token数: [2200]
 
 ### 5. Feedback Loop | 反馈循环
 
@@ -127,17 +135,26 @@ Input → Translation → RAG Retrieval → Reasoning → Feedback → Output
 | Parameter | Value | Description |
 |-----------|-------|-------------|
 | Model | Model_Deepseek-r1 | Core reasoning model |
-| Temperature | [TBD] | Sampling temperature |
-| Max Tokens | [TBD] | Maximum output length |
+| Temperature | [0] | Sampling temperature |
+| Max Tokens | [2200] | Maximum output length |
 
 ### RAG Parameters | RAG参数
 
 | Parameter | Value | Description |
 |-----------|-------|-------------|
-| Top-K | [TBD] | Number of retrieved documents |
-| Similarity Threshold | [TBD] | Minimum similarity score |
+| 搜索策略 (Search Strategy) | 混合 (Mixed) | Mixed search strategy for retrieval |
+| 最大召回数量 (Max Recall) | 默认 (Default) | Maximum number of retrieved documents (Range: 1-20) |
+| 最小匹配度 (Min Match) | 默认 (Default) | Minimum similarity score threshold (Range: 0.01-0.99) |
+| 表格 SQL 查询 (Table SQL Query) | 启用 (Enabled) | Synchronously convert natural language to SQL queries |
+| 查询改写 (Query Rewriting) | 启用 (Enabled) | Optimize and refactor query statements to capture user intent |
+| 结果重排 (Result Reranking) | 启用 (Enabled) | Rerank retrieved documents based on relevance/quality |
+| 仅查看个人文档 | 启用 (Enabled) | Only search user-uploaded and developer-preset documents |
 | Knowledge Base 1 | Textbook | Physics textbook content |
 | Knowledge Base 2 | Solved Problems | 1800 solved problems |
+
+**Note**: The RAG node uses Coze platform's default configuration with all optimization features enabled (query rewriting, reranking, SQL query). The max recall and min match parameters use default values, which are automatically optimized by the platform.
+
+**注意**: RAG节点使用Coze平台的默认配置，所有优化功能均已启用（查询改写、结果重排、SQL查询）。最大召回数量和最小匹配度使用默认值，由平台自动优化。
 
 ## Performance Optimization | 性能优化
 
@@ -179,4 +196,5 @@ Input → Translation → RAG Retrieval → Reasoning → Feedback → Output
 For node-level details, see [node_descriptions.md](./node_descriptions.md).
 
 节点级别详细信息，请参见 [node_descriptions.md](./node_descriptions.md)。
+
 

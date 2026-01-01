@@ -64,3 +64,10 @@ Thumbs.db
 !examples/
 !scripts/
 
+# 简历和项目经历文件（不上传）
+# Resume and project experience files (not to be uploaded)
+*简历*.tex
+*项目经历*.tex
+技能描述.tex
+
+
