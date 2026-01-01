@@ -1,4 +1,6 @@
 ##读图模型的提示词
+
+
 Based on the following information, please analyze and provide a precise description of the image presented in the physics problem.
 Image Theme: Using the variable {{subject}}, identify the physics topic depicted in the image.
 Image Content: Use the variable {{image}} to access the physical image material associated with the problem.
@@ -8,5 +10,6 @@ Auxiliary Description: Use the variable {{caption}} and refer to the image's tex
 From a physics standpoint, please provide a clear and professional description of the image. This should include the physical scenario it presents, the physical elements involved (such as circuit components, objects under force), and its connection to physical laws or principles (for instance, whether it illustrates a model for a specific theorem or law). The goal is to achieve a precise interpretation of the physical image.
 
 ![Image Reading Prompt Configuration](image_reading_prompt.png)
+
 
 
