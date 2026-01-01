@@ -8,8 +8,9 @@ Image correlation: Refer to {{vision_relevance}} to judge the necessity and role
 Output requirements: Refer to the {{sig_figs}} variable to retain significant figures. If it is empty, do not simplify it into a decimal form. When outputting,Please output your answer in the <answer>...</answer> format, where only the final answer is included — no explanations or reasoning steps. A brief sketch of the thought process may be provided outside the <answer> block. Formulas should be in latex format.
 Please combine the knowledge of physics. Integrate the above information to get accurate answers.
 
-```markdown
+
 ![Image Description](baseline_prompt.png)
-```
+
+
 
 
