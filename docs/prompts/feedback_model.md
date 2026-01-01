@@ -18,6 +18,6 @@ Your response MUST strictly follow this format:
 - If any error exists, your response must start with the word FALSE, followed by a newline, and then a detailed, step-by-step explanation of each mistake. For each error, specify the step where it occurs and explain why it is incorrect.
 
 
-```markdown
-![Image Description](Feedback_model.png)
-```
+
+![Feedback Model Prompt Configuration](Feedback_model.png)
+
