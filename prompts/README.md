@@ -9,14 +9,10 @@ This directory contains all the prompt templates used in the Coze workflow for t
 ```
 prompts/
 ├── README.md                                    # 本文件
-├── baseline_prompt.png                         # 基线提示词截图
 ├── problem_solving_model_without_RAG.md        # 基线解题模型提示词（无RAG）
 ├── problem_solving_model_with_RAG.md           # 解题模型提示词（含RAG）
-├── RAG_prompt.png                              # RAG提示词截图
 ├── feedback_model.md                           # 反馈/裁判模型提示词
-├── Feedback_model.png                          # 反馈模型提示词截图
 ├── image_reading_model.md                      # 图像读取模型提示词
-└── image_reading_prompt.png                    # 图像读取提示词截图
 ```
 
 ## Prompt Categories | 提示词类别
